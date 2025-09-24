@@ -47,9 +47,9 @@ Para resolver este problema se seleccionó el **patrón creacional Builder**, ya
 ---
 
 ## 4. Referencias
-[1] Refactoring Guru, "Builder" [En línea]. Disponible: \url{https://refactoring.guru/es/design-patterns/builder}. [Accedido: Sep. 2025].
+[1] Refactoring Guru, "Builder" [En línea]. Disponible: https://refactoring.guru/es/design-patterns/builder. [Accedido: Sep. 2025].
 
-[2] O. Blancarte, "Builder" Reactive Programming, [En línea]. Disponible: \url{https://reactiveprogramming.io/blog/es/patrones-de-diseno/builder}. [Accedido: Sep. 2025].
+[2] O. Blancarte, "Builder" Reactive Programming, [En línea]. Disponible: https://reactiveprogramming.io/blog/es/patrones-de-diseno/builder. [Accedido: Sep. 2025].
 
 ---
 
