@@ -1,5 +1,6 @@
 package cars;
 
+import builders.CarBuilder;
 import components.*;
 
 public class Car {
@@ -11,14 +12,15 @@ public class Car {
     private final TechoSolar techoSolar;
     private final GPS gps;
 
-    public Car(Motor motor, Color color, Llantas llantas, Sonido sonido, Interiores interiores, TechoSolar techoSolar, GPS gps) {
-        this.motor = motor;
-        this.color = color;
-        this.llantas = llantas;
-        this.sonido = sonido;
-        this.interiores = interiores;
-        this.techoSolar = techoSolar;
-        this.gps = gps;
+    public Car(CarBuilder builder) {
+        // Datos por defecto
+        this.motor = builder.getMotor() != null ? builder.getMotor() : new Motor("Estándar");
+        this.color = builder.getColor() != null ? builder.getColor() : new Color("Negro");
+        this.llantas = builder.getLlantas() != null ? builder.getLlantas() : new Llantas("16''");
+        this.sonido = builder.getSonido() != null ? builder.getSonido() : new Sonido("Básico");
+        this.interiores = builder.getInteriores() != null ? builder.getInteriores() : new Interiores("Tela estándar");
+        this.techoSolar = builder.getTechoSolar() != null ? builder.getTechoSolar() : new TechoSolar(false);
+        this.gps = builder.getGps() != null ? builder.getGps() : new GPS(false);
     }
 
     @Override
@@ -33,7 +35,6 @@ public class Car {
                 "Techo Solar : " + techoSolar + "\n" +
                 "GPS         : " + gps + "\n" +
                 "--------------------------------------------------\n"+
-                "¡Gracias por su compra!"
-                ;
+                "¡Gracias por su compra!";
     }
 }

@@ -17,9 +17,17 @@ public class CarBuilder {
         return this;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
     public CarBuilder setColor(Color color) {
         this.color = color;
         return this;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public CarBuilder setLlantas(Llantas llantas) {
@@ -27,9 +35,17 @@ public class CarBuilder {
         return this;
     }
 
+    public Llantas getLlantas() {
+        return llantas;
+    }
+
     public CarBuilder setSonido(Sonido sonido) {
         this.sonido = sonido;
         return this;
+    }
+
+    public Sonido getSonido() {
+        return sonido;
     }
 
     public CarBuilder setInteriores(Interiores interiores) {
@@ -37,9 +53,17 @@ public class CarBuilder {
         return this;
     }
 
+    public Interiores getInteriores() {
+        return interiores;
+    }
+
     public CarBuilder setTechoSolar(TechoSolar techoSolar) {
         this.techoSolar = techoSolar;
         return this;
+    }
+
+    public TechoSolar getTechoSolar() {
+        return techoSolar;
     }
 
     public CarBuilder setGps(GPS gps) {
@@ -47,16 +71,11 @@ public class CarBuilder {
         return this;
     }
 
-    public Car build() {
-        // Valores por defecto
-        if (motor == null) motor = new Motor("Estándar");
-        if (color == null) color = new Color("Negro");
-        if (llantas == null) llantas = new Llantas("16''");
-        if (sonido == null) sonido = new Sonido("Básico");
-        if (interiores == null) interiores = new Interiores("Tela estándar");
-        if (techoSolar == null) techoSolar = new TechoSolar(false);
-        if (gps == null) gps = new GPS(false);
+    public GPS getGps() {
+        return gps;
+    }
 
-        return new Car(motor, color, llantas, sonido, interiores, techoSolar, gps);
+    public Car build() {
+        return new Car(this);
     }
 }
