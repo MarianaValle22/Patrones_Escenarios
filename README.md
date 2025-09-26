@@ -46,6 +46,79 @@ Como solución se optó este patrón gracias a que este permite separar la abstr
 
 ### Diagrama de clases adaptado a la solución:
 
+### Diagrama de clases adaptado a la solución:
+
+### Diagrama de clases adaptado a la solución:
+
+```mermaid
+classDiagram
+    direction LR
+
+    class Notificacion {
+        <<Abstraccion>>
+        -String titulo
+        -String mensaje
+        -Plataforma plataforma
+        +Notificacion(String titulo, String mensaje, Plataforma plataforma)
+        +mostrar()
+    }
+
+    class Alerta {
+        <<Refinada>>
+        +Alerta(String titulo, String mensaje, Plataforma plataforma)
+        +mostrar()
+    }
+
+    class Advertencia {
+        <<Refinada>>
+        +Advertencia(String titulo, String mensaje, Plataforma plataforma)
+        +mostrar()
+    }
+
+    class Confirmacion {
+        <<Refinada>>
+        +Confirmacion(String titulo, String mensaje, Plataforma plataforma)
+        +mostrar()
+    }
+
+    class Mensaje {
+        <<Refinada>>
+        +Mensaje(String titulo, String mensaje, Plataforma plataforma)
+        +mostrar()
+    }
+
+    class Plataforma {
+        <<Implementacion>>
+        +mostrarNotificacion(String titulo, String mensaje)
+    }
+
+    class Web {
+        <<Concreta>>
+        +mostrarNotificacion(String titulo, String mensaje)
+    }
+
+    class Escritorio {
+        <<Concreta>>
+        +mostrarNotificacion(String titulo, String mensaje)
+    }
+
+    class Movil {
+        <<Concreta>>
+        +mostrarNotificacion(String titulo, String mensaje)
+    }
+
+    Notificacion <|-- Alerta
+    Notificacion <|-- Advertencia
+    Notificacion <|-- Confirmacion
+    Notificacion <|-- Mensaje
+
+    Plataforma <|-- Web
+    Plataforma <|-- Escritorio
+    Plataforma <|-- Movil
+
+    Notificacion --> Plataforma : usa
+```
+
 ---
 ## 3. Escenario 3
 
@@ -72,6 +145,15 @@ Para resolver este problema, se seleccionó el **patrón de comportamiento Media
 [2] O. Blancarte, "Builder" Reactive Programming, [En línea]. Disponible: https://reactiveprogramming.io/blog/es/patrones-de-diseno/builder. [Accedido: Sep. 2025].
 
 [3] Refactoring Guru, "Mediator" [En línea]. Disponible: https://refactoring.guru/es/design-patterns/mediator. [Accedido: Sep. 2025].
+
+[4] Refactoring Guru, "Bridge" [En línea]. Disponible: https://refactoring.guru/es/design-patterns/bridge
+. [Accedido: Sep. 2025].
+
+[5] Reactive Programming, "Patrón de diseño Bridge" [En línea]. Disponible: https://reactiveprogramming.io/blog/es/patrones-de-diseno/bridge
+. [Accedido: Sep. 2025].
+
+[6] DigitalOcean, "Bridge Design Pattern in Java" [En línea]. Disponible: https://www.digitalocean.com/community/tutorials/bridge-design-pattern-java
+. [Accedido: Sep. 2025].
 
 
 
