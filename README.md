@@ -28,6 +28,99 @@ Para resolver este problema se seleccionó el patrón creacional Builder, ya que
 
 ### Diagrama de clases adaptado a la solución:
 
+```mermaid
+classDiagram
+    direction LR
+
+    class Car {
+        -Motor motor
+        -Color color
+        -Llantas llantas
+        -Sonido sonido
+        -Interiores interiores
+        -TechoSolar techoSolar
+        -GPS gps
+        +Car(CarBuilder builder)
+        +toString(): String
+    }
+
+    class CarBuilder {
+        -Motor motor
+        -Color color
+        -Llantas llantas
+        -Sonido sonido
+        -Interiores interiores
+        -TechoSolar techoSolar
+        -GPS gps
+        +setMotor(Motor): CarBuilder
+        +getMotor(): Motor
+        +setColor(Color): CarBuilder
+        +getColor(): Color
+        +setLlantas(Llantas): CarBuilder
+        +getLlantas(): Llantas
+        +setSonido(Sonido): CarBuilder
+        +getSonido(): Sonido
+        +setInteriores(Interiores): CarBuilder
+        +getInteriores(): Interiores
+        +setTechoSolar(TechoSolar): CarBuilder
+        +getTechoSolar(): TechoSolar
+        +setGps(GPS): CarBuilder
+        +getGps(): GPS
+        +build(): Car
+    }
+
+    class Motor {
+        -String tipo
+        +Motor(String tipo)
+        +toString(): String
+    }
+
+    class Color {
+        -String nombre
+        +Color(String nombre)
+        +toString(): String
+    }
+
+    class Llantas {
+        -String tamaño
+        +Llantas(String tamaño)
+        +toString(): String
+    }
+
+    class Sonido {
+        -String nombre
+        +Sonido(String nombre)
+        +toString(): String
+    }
+
+    class Interiores {
+        -String nombre
+        +Sonido(String nombre)
+        +toString(): String
+    }
+
+    class TechoSolar {
+        -boolean activo
+        +TechoSolar(boolean activo)
+        +toString(): String
+    }
+
+    class GPS {
+        -boolean activo
+        +GPS(boolean activo)
+        +toString(): String
+    }
+
+    CarBuilder --> Car : build()
+    Car --> Motor
+    Car --> Color
+    Car --> Llantas
+    Car --> Sonido
+    Car --> Interiores
+    Car --> TechoSolar
+    Car --> GPS
+```
+
 ---
 ## 2. Escenario 2
 
