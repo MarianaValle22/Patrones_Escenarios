@@ -31,10 +31,18 @@ Para resolver este problema se seleccionó el patrón creacional Builder, ya que
 ---
 ## 2. Escenario 2
 
-### Principales beneficios:
 <div align="justify">
 En el Escenario 2 se presenta el desarollo de una aplicación para la cual se gestionen diferentes visualizaciones de notificaciones (y sus distintos tipos) según la plataforma, mostrando como problemática el manejo y creación de clases que se preseta con una herencia tradicional. Teniendo en cuenta lo anterior, se decide como objetivo el separar la lógica de las notificaciones y el medio de visualización, para así poder agregar más plataformas y/o tipos de notificaciones sin alterar todo el código. Para la solución, el patrón escogido fue el patrón Bridge.
+
+Como solución se optó este patrón gracias a que este permite separar la abstracción (los distintos tipos de notificación) de la implementación (las plataformas en que se muestran). Así, ambos elementos evolucionan de forma independiente: es posible añadir nuevas plataformas sin modificar los tipos de notificación y viceversa.
 </div>
+
+### Principales beneficios:
+
+* **Separación de responsabilidades:** cada jerarquía se desarrolla de manera independiente (tipos de notificación y plataformas de visualización).
+* **Escalabilidad:** es posible agregar una nueva plataforma o un nuevo tipo de notificación sin requerir modificar clases ya existentes.
+* **Reducción de clases:** se evita la multiplicación de subclases por cada combinación posible.
+* **Mantenibilidad:** la estructura se mantiene limpia, entendible y adaptable.
 
 ### Diagrama de clases adaptado a la solución:
 
