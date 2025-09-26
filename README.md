@@ -46,10 +46,6 @@ Como solución se optó este patrón gracias a que este permite separar la abstr
 
 ### Diagrama de clases adaptado a la solución:
 
-### Diagrama de clases adaptado a la solución:
-
-### Diagrama de clases adaptado a la solución:
-
 ```mermaid
 classDiagram
     direction LR
