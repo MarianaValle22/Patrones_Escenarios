@@ -41,7 +41,18 @@ En el Escenario 2 se presenta el desarollo de una aplicación para la cual se ge
 ---
 ## 3. Escenario 3
 
+
+En el Escenario 3 se requiere desarrollar una aplicación de chat grupal donde los usuarios pueden enviarse mensajes. El **problema central** es la **alta dependencia** que surge cuando cada usuario debe conocer y comunicarse con todos los demás, resultando en un sistema difícil de escalar y mantener.
+
+Para resolver este problema, se seleccionó el **patrón de comportamiento Mediator (Mediador)**, ya que su propósito es reducir las dependencias caóticas entre objetos. El patrón introduce un objeto central (`ChatRoom`) que actúa como un **mediador**, forzando a los usuarios (`User`) a colaborar únicamente a través de él, nunca directamente entre sí.
+
 ### Principales beneficios:
+
+* **Bajo Acoplamiento:** Los usuarios solo dependen del mediador (una abstracción), no de otros usuarios concretos.
+* **Mantenimiento Simplificado:** La lógica de comunicación (la distribución de mensajes) está centralizada en la clase `ChatRoom`, no dispersa en múltiples objetos.
+* **Escalabilidad:** Añadir o eliminar un usuario solo requiere modificar la lista del Mediador, cumpliendo con los principios **SOLID** como el Principio Abierto/Cerrado.
+
+*(Para un análisis detallado de la implementación en Java y su relación con los principios SOLID, consulte el archivo `Ejercicio_3_Mediator/README.md`.)*
 
 ### Diagrama de clases adaptado a la solución:
 
@@ -51,6 +62,10 @@ En el Escenario 2 se presenta el desarollo de una aplicación para la cual se ge
 [1] Refactoring Guru, "Builder" [En línea]. Disponible: https://refactoring.guru/es/design-patterns/builder. [Accedido: Sep. 2025].
 
 [2] O. Blancarte, "Builder" Reactive Programming, [En línea]. Disponible: https://reactiveprogramming.io/blog/es/patrones-de-diseno/builder. [Accedido: Sep. 2025].
+
+[3] Refactoring Guru, "Mediator" [En línea]. Disponible: https://refactoring.guru/es/design-patterns/mediator. [Accedido: Sep. 2025].
+
+
 
 ---
 
