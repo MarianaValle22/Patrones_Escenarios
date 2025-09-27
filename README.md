@@ -225,6 +225,46 @@ Para resolver este problema, se seleccionó el **patrón de comportamiento Media
 *(Para un análisis detallado de la implementación en Java y su relación con los principios SOLID, consulte el archivo `Ejercicio_3_Mediator/README.md`.)*
 
 ### Diagrama de clases adaptado a la solución:
+```mermaid
+classDiagram
+direction LR
+    class ChatMediator {
+	    +addUser(User user)
+	    +sendMessage(String message, User sender)
+    }
+    class User {
+	    #name: String
+	    #mediator: ChatMediator
+	    +User(String name)
+	    +setMediator(ChatMediator mediator)
+	    +getName() : String
+	    +sendMessage(String message)
+	    +receiveMessage(String message)
+    }
+    class ChatRoom {
+	    -users: List
+	    +ChatRoom()
+	    +addUser(User user)
+	    +sendMessage(String message, User sender)
+    }
+    class ConcreteUser {
+	    +ConcreteUser(String name)
+	    +sendMessage(String message)
+	    +receiveMessage(String message)
+    }
+
+	<<interface>> ChatMediator
+	<<abstract>> User
+
+	note for ConcreteUser "llama a mediator.sendMessage()"
+
+    ChatMediator <|.. ChatRoom : implementa
+    User <|-- ConcreteUser : hereda
+    User o-- "1" ChatMediator : conoce
+    ChatRoom *-- "0..*" User : contiene
+    ConcreteUser ..> ChatMediator : llama
+
+```
 
 ---
 
